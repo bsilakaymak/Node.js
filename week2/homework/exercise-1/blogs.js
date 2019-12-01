@@ -4,8 +4,9 @@ const fs = require("fs");
 const path = require("path");
 
 //GET ALL
-function getBlogs(req, res) {}  // I couldn't find the right way to list all the blogs
-// I tried readdir etc. but didn't work:(
+function getBlogs(req, res) {
+  res.send(fs.readdirSync(__dirname));
+}  // I couldn't find the right way to list all the blogs
 
 //GET ONE
 function getOneBlog(req, res) {
