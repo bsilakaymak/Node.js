@@ -7,11 +7,15 @@ function randomElement(array){
     return array[Math.floor(Math.random() * array.length)];
 }
 function cardsVsHuman(){
-    const source = "<p> <span class='fill-in'>{{subj}}</span> is great to <span class='fill-in'>{{punch}}</span></p>"
+    const source = `
+    <div class='subject'><span>{{subj}}</span></div>
+    <div class='sub-and-punch'> <p> <span class='fill-in'>{{subj}}</span> is great to <span class='fill-in'>{{punch}}</span></p></div>
+    <div class='punch'><span>{{punch}}</span></div>
+    ` 
     let template = Handlebars.compile(source);
     const data = {"subj": randomElement(subjects), "punch": randomElement(punchlines) };
     const result = template(data);
-    const cardDisplay = document.getElementById('card');
+    const cardDisplay = document.getElementById('cards');
     cardDisplay.innerHTML = result;
 }
 
